@@ -9,10 +9,10 @@ namespace StanfordPasswordPolicy
     {
         public static class ErrorCode
         {
-            public const string ShortLength = "ShortPassword";
-            public const string NoSymbol = "NoSymbols";
-            public const string NoNumber = "NoNumbers";
-            public const string NoMixedCase = "NotMixedCase";
+            public static readonly string ShortLength = "ShortPassword";
+            public static readonly string NoSymbol = "NoSymbols";
+            public static readonly string NoNumber = "NoNumbers";
+            public static readonly string NoMixedCase = "NotMixedCase";
         }
 
         public Task<IdentityResult> ValidateAsync(UserManager<TUser> manager, TUser user, string password)
