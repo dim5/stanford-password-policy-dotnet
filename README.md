@@ -2,7 +2,7 @@
 
 Stanford-password-policy-dotnet is a password validator library for ASP.NET Core.
 
-## What is it?
+## What is it
 The [Stanford password policy](https://uit.stanford.edu/service/accounts/passwords/quickguide) is a dynamic password policy that
 encourages the use of easy to remember, yet secure passphrases instead of hard to remember passwords.
 
@@ -10,15 +10,11 @@ encourages the use of easy to remember, yet secure passphrases instead of hard t
 
 Using nuget
 
-```
-coming soon
-```
+    coming soon
 
 ## Usage
 
-```
-coming soon
-```
+    coming soon
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
