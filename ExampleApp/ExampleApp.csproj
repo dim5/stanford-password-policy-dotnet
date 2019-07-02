@@ -12,9 +12,4 @@
     <PackageReference Include="StanfordPasswordPolicy" Version="1.0.0-alpha2" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-
 </Project>
