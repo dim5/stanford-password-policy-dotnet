@@ -5,28 +5,9 @@ using System.Threading.Tasks;
 
 namespace StanfordPasswordPolicy
 {
-    public class StanfordPasswordValidator<TUser> : IPasswordValidator<TUser> where TUser : class
+    public sealed class StanfordPasswordValidator<TUser> : StanfordPasswordValidatorBase, IPasswordValidator<TUser> where TUser : class
     {
-        public static class ErrorCode
-        {
-            public static readonly string ShortLength = "ShortPassword";
-            public static readonly string NoSymbol = "NoSymbols";
-            public static readonly string NoNumber = "NoNumbers";
-            public static readonly string NoMixedCase = "NotMixedCase";
-        }
-
-        public static PasswordOptions NoDefaults =>
-            new PasswordOptions
-            {
-                RequireDigit = false,
-                RequiredLength = 0,
-                RequiredUniqueChars = 1,
-                RequireLowercase = false,
-                RequireNonAlphanumeric = false,
-                RequireUppercase = false
-            };
-
-        public Task<IdentityResult> ValidateAsync(UserManager<TUser> manager, TUser user, string password)
+       public Task<IdentityResult> ValidateAsync(UserManager<TUser> manager, TUser user, string password)
         {
             var errors = new List<IdentityError>();
 
@@ -69,12 +50,5 @@ namespace StanfordPasswordPolicy
             var res = errors.Any() ? IdentityResult.Failed(errors.ToArray()) : IdentityResult.Success;
             return Task.FromResult(res);
         }
-
-        private static bool CheckMixedCase(string password) =>
-            password.Any(char.IsUpper) && password.Any(char.IsLower);
-
-        private static bool CheckNumber(string password) => password.Any(char.IsNumber);
-
-        private static bool CheckSymbol(string password) => !password.All(char.IsLetterOrDigit);
     }
 }
