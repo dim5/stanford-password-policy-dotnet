@@ -32,7 +32,7 @@ namespace Test
         [Fact]
         public async Task TestLengthAsync()
         {
-            var errorCode = StanfordPasswordValidator.ErrorCode.ShortLength;
+            var errorCode = StanfordPasswordValidatorBase.ErrorCode.ShortLength;
             var password = string.Empty;
             IdentityResultAssert.IsFailure(await validator.ValidateAsync(manager, user, password),
                                             errorCode);
@@ -56,7 +56,7 @@ namespace Test
         [Fact]
         public async Task TestSymbolAsync()
         {
-            var errorCode = StanfordPasswordValidator.ErrorCode.NoSymbol;
+            var errorCode = StanfordPasswordValidatorBase.ErrorCode.NoSymbol;
             var password = "aaa";
             IdentityResultAssert.IsFailure(await validator.ValidateAsync(manager, user, password),
                                             errorCode);
@@ -74,7 +74,7 @@ namespace Test
         [Fact]
         public async Task TestNumbersAsync()
         {
-            var errorCode = StanfordPasswordValidator.ErrorCode.NoNumber;
+            var errorCode = StanfordPasswordValidatorBase.ErrorCode.NoNumber;
             var password = "aaa";
             IdentityResultAssert.IsFailure(await validator.ValidateAsync(manager, user, password),
                                             errorCode);
@@ -91,7 +91,7 @@ namespace Test
         [Fact]
         public async Task TestMixedAsync()
         {
-            var errorCode = StanfordPasswordValidator.ErrorCode.NoMixedCase;
+            var errorCode = StanfordPasswordValidatorBase.ErrorCode.NoMixedCase;
             var password = "aaa";
             IdentityResultAssert.IsFailure(await validator.ValidateAsync(manager, user, password),
                                             errorCode);
