@@ -27,15 +27,7 @@ namespace SampleApp
 
             services.AddIdentity<AppUser, IdentityRole>(opt =>
                     {
-                        opt.Password = new PasswordOptions
-                        {
-                            RequireDigit = false,
-                            RequiredLength = 0,
-                            RequiredUniqueChars = 1,
-                            RequireLowercase = false,
-                            RequireNonAlphanumeric = false,
-                            RequireUppercase = false
-                        };
+                        opt.Password = StanfordPasswordValidatorBase.NoDefaults;
                     }
                 )
                 .AddEntityFrameworkStores<AppDbContext>()
