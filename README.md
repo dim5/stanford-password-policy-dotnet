@@ -8,13 +8,26 @@ encourages the use of easy to remember, yet secure passphrases instead of hard t
 
 ## Installation
 
-Using nuget
-
-    coming soon
+Using the dotnet-cli
+```bash
+dotnet add package StanfordPasswordPolicy
+```
+or with the nuget package manager console:
+```bash
+Install-Package StanfordPasswordPolicy
+```
 
 ## Usage
 
-    coming soon
+```csharp
+services.AddIdentity<AppUser, IdentityRole>(opt =>
+        {
+            // If you don't want Identity's defaults to interfere with your new policy
+            opt.Password = StanfordPasswordValidatorBase.NoDefaultPasswordOptions;
+        })
+        .AddPasswordValidator<StanfordPasswordValidator<AppUser>>();
+```
+You can also check out SampleApp for a more complete example.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
