@@ -15,6 +15,17 @@ namespace StanfordPasswordPolicy
             public static readonly string NoMixedCase = "NotMixedCase";
         }
 
+        public static PasswordOptions NoDefaults =>
+            new PasswordOptions
+            {
+                RequireDigit = false,
+                RequiredLength = 0,
+                RequiredUniqueChars = 1,
+                RequireLowercase = false,
+                RequireNonAlphanumeric = false,
+                RequireUppercase = false
+            };
+
         public Task<IdentityResult> ValidateAsync(UserManager<TUser> manager, TUser user, string password)
         {
             var errors = new List<IdentityError>();
