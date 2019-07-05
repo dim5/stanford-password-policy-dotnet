@@ -13,7 +13,10 @@ namespace StanfordPasswordPolicy
             public static readonly string NoMixedCase = "NotMixedCase";
         }
 
-        public static PasswordOptions NoDefaults =>
+        /// <summary>
+        /// A clear set of PasswordOptions, to reset Identity's defaults, since StanfordPasswordValidator ignores these options.
+        /// </summary>
+        public static PasswordOptions NoDefaultPasswordOptions =>
             new PasswordOptions
             {
                 RequireDigit = false,
