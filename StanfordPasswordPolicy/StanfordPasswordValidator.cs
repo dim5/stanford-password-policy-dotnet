@@ -7,6 +7,10 @@ namespace StanfordPasswordPolicy
 {
     public sealed class StanfordPasswordValidator<TUser> : StanfordPasswordValidatorBase, IPasswordValidator<TUser> where TUser : class
     {
+        /// <summary>
+        /// Validates a password according to the Stanford Password Policy
+        /// </summary>
+        /// <returns>IdentityResult with an array of IdentityErrors if the password isn't valid, else with IdentityResult.Success</returns>
        public Task<IdentityResult> ValidateAsync(UserManager<TUser> manager, TUser user, string password)
         {
             var errors = new List<IdentityError>();
