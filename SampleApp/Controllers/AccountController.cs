@@ -10,7 +10,6 @@ namespace SampleApp.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        // GET api/values
         private readonly UserManager<AppUser> _userManager;
 
         public AccountController(UserManager<AppUser> userManager)
